@@ -21,4 +21,4 @@ if (etàPasseggero < 18) {
    prezzoFinale = prezzoBiglietto * (1 - scontoOver65 / 100);
 
 }
-console.log('Il prezzo totale è pari a ', prezzoBiglietto.toFixed(2))
+console.log('Il prezzo totale è pari a ', prezzoFinale.toFixed(2))

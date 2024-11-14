@@ -11,17 +11,14 @@ const kmUtente = parseInt(prompt('Inserisci i km da percorrere'));
 const etàPasseggero = parseInt(prompt('Inserisci l\'eta\' del passeggero'));
 const prezzoBiglietto = kmUtente * 0.21;
 const scontoMinorenni = 20;
-const prezzoMinorenni = prezzoBiglietto * (1 - scontoMinorenni / 100);
 const scontoOver65 = 40;
-const prezzoOver65 = prezzoBiglietto * (1 - scontoOver65 / 100);
-let prezzoFinale
+let prezzoFinale = prezzoBiglietto
 
 if (etàPasseggero < 18) {
-  prezzoFinale = prezzoMinorenni
-  console.log('Il prezzo totale è pari a ', prezzoFinale.toFixed(2))
+   prezzoFinale = prezzoBiglietto * (1 - scontoMinorenni / 100);
+  
 } else if (etàPasseggero > 65) {
-  prezzoFinale = prezzoOver65
-  console.log('Il prezzo totale è pari a ', prezzoFinale.toFixed(2))
-} else {
-  console.log('Il prezzo totale è pari a ', prezzoBiglietto.toExponential(2))
+   prezzoFinale = prezzoBiglietto * (1 - scontoOver65 / 100);
+
 }
+console.log('Il prezzo totale è pari a ', prezzoBiglietto.toFixed(2))

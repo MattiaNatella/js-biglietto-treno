@@ -13,12 +13,19 @@ const prezzoBiglietto = kmUtente * 0.21;
 const scontoMinorenni = 20;
 const scontoOver65 = 40;
 let prezzoFinale = prezzoBiglietto
+let message
 
 if (etàPasseggero < 18) {
-   prezzoFinale = prezzoBiglietto * (1 - scontoMinorenni / 100);
-  
-} else if (etàPasseggero > 65) {
+  prezzoFinale = prezzoBiglietto * (1 - scontoMinorenni / 100);
+  message = `Sei minorenne quindi hai lo sconto del ${scontoMinorenni}%!
+  Il prezzo del tuo biglietto è di:€ ${prezzoFinale.toFixed(2)}`
+   
+} else if (etàPasseggero >= 65) {
    prezzoFinale = prezzoBiglietto * (1 - scontoOver65 / 100);
-
+   message = `Hai più di 65 anni quindi hai lo sconto del ${scontoOver65}%!
+   Il prezzo del tuo biglietto è di: € ${prezzoFinale.toFixed(2)} `
+   
+} else {
+  message = `Il prezzo del tuo biglietto è di € ${prezzoFinale.toFixed(2)}`
 }
-console.log('Il prezzo totale è pari a ', prezzoFinale.toFixed(2))
+console.log(message)
